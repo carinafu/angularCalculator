@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='app'>
+<head>
+	<title>Calculator Demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Calculator Styles -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- framework used -->
+	<script src="framework/angular.js"></script>
+	<script src="framework/calc.js"></script>
+	<!-- Calculator Logic -->
+	<script src="js/app.js"></script>
+	<script src="js/service.js"></script>
+	<script src="js/controller.js"></script>
+
+</head>
+<body>
+
+	<div id="calculator" ng-controller="calcCtrl">
+
+		<!-- Calculator Display -->
+		<section id="display">
+			<div id="result">{{result}}</div>
+			<div id="exp">{{expression}}</div>
+		</section>
+
+		<!-- Buttons with click event handlers -->
+		<section id="buttons">
+
+			<a ng-click="press('(')" class="button">(</a>
+			<a ng-click="press(')')" class="button">)</a>
+			<a class="button disabled">&nbsp;</a>
+			<a ng-click="clearAll()" class="button">AC</a> 
+			<br/>
+			<a ng-click="press('7')" class="button">7</a>
+			<a ng-click="press('8')" class="button">8</a>
+			<a ng-click="press('9')" class="button">9</a>
+			<a ng-click="press('/')" class="button">/</a> 
+			<br/>
+			
+			<a ng-click="press('4')" class="button">4</a>
+			<a ng-click="press('5')" class="button">5</a>
+			<a ng-click="press('6')" class="button">6</a>
+			<a ng-click="press('*')" class="button">X</a> 
+			<br/>
+
+			<a ng-click="press('1')" class="button">1</a>
+			<a ng-click="press('2')" class="button">2</a>
+			<a ng-click="press('3')" class="button">3</a>
+			<a ng-click="press('-')" class="button">-</a> 
+			<br/>
+			
+			<a ng-click="press('0')" class="button">0</a>
+			<a ng-click="press('.')" class="button">.</a>
+			<a ng-click="press('+')" class="button">+</a>
+			<a ng-click="executeEval()" class="button alt">=</a>
+			<br/>
+			
+		</section>
+
+	</div>
+	<p class="note">Note:please input an valid expression to calculate. eg:1+2, (1+3)*2.</p>
+	<p class="note">Invalid expression can not be calculated. eg:1**2, (1), 1*((+2.</p>
+	<p class="note">If input invalid expression, please press "AC" to clear input and continue.</p>
+
+</body>
+</html>
